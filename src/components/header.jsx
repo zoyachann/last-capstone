@@ -30,7 +30,7 @@ const ResponsiveAppBar = () => {
         <AppBar position="sticky" color="default" elevation={0} justify-content-between>
 
             <Toolbar>
-                {/* Logo */}
+
                 <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1, marginLeft: '20' }}>
                     <img src={Logo} alt="PickBazar Logo" style={{ height: 40, marginRight: 8 }} />
                     <Typography
@@ -41,8 +41,8 @@ const ResponsiveAppBar = () => {
                     >
                         PickBazar
                     </Typography>
-                    <Box className='d-flex  border border-success' >
-                        <Button variant='outlined' sx={{ color: '#019376', border:'1px solid #019376'}}startIcon={<AppleIcon />} endIcon={<ArrowDropDownIcon />}  >
+                    <Box className='d-flex ' >
+                        <Button  sx={{ color: '#019376', border:'1px solid #019376'}}startIcon={<AppleIcon />} endIcon={<ArrowDropDownIcon />}  >
                             Grocery
                         </Button>
 
@@ -50,9 +50,6 @@ const ResponsiveAppBar = () => {
                     </Box> 
                     
                 </Box>
-
-
-                {/* Links */}
                 <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
                     <Button color="inherit">Shops</Button>
                     <Button color="inherit">Offers</Button>
