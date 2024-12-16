@@ -4,6 +4,7 @@ import './App.css';
 import ResponsiveAppBar from './components/header';
 import HeroSection from './components/HeroSection';
 import SwiperSlide from './components/SwiperSlide';
+import Product from './components/Product/product';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     <ResponsiveAppBar/>
    <HeroSection/>
    <SwiperSlide/>
-   
+   <Product/>
    </div>
   );
 }
