@@ -1,68 +1,85 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
+import { Modal, Box, Typography, TextField, Button, Link, Stack } from "@mui/material";
+import Logo from '../asess/Logo-new.webp';
 
-function LoginModal({ closeModal }) {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+// Modal Styling
+const modalStyle = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    boxShadow: 24,
+    p: 4,
+    borderRadius: 2,
+};
 
-  const onSubmit = (data) => {
-    console.log("Login Data:", data);
-    alert("Login Successful");
-    closeModal();
-  };
+export default function AuthModal({ openModal, setOpenModal, isRegister, setIsRegister }) {
 
-  return (
-    <div className="container" style={{ padding: '20px', background: 'white', borderRadius: '8px', boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', width: '400px' }}>
-      <h2 className="text-center mb-4">PickBazar</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {/* Email */}
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            placeholder="customer@demo.com"
-            className="form-control"
-            {...register("email", { required: "Email is required" })}
-          />
-          {errors.email && <div className="text-danger">{errors.email.message}</div>}
-        </div>
+    const handleClose = () => {
+        setOpenModal(false);
+    };
 
-        {/* Password */}
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            placeholder="******"
-            className="form-control"
-            {...register("password", { required: "Password is required" })}
-          />
-          {errors.password && <div className="text-danger">{errors.password.message}</div>}
-        </div>
+    const toggleForm = () => {
+        setIsRegister(!isRegister); 
+    };
 
-        {/* Submit Button */}
-        <button type="submit" className="btn btn-success w-100 mb-3">
-          Login
-        </button>
-      </form>
+    return (
+        <Modal open={openModal} onClose={handleClose}>
+            <Box sx={modalStyle}>
+                <Box sx={{ display: 'flex', alignItems: 'center'}} className="my-4 pb-3 justify-content-center">
+                    <img src={Logo} alt="PickBazar Logo" style={{ height: 40 }} />
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#333'}}>
+                        PickBazar
+                    </Typography>
+                </Box>
 
-      {/* Alternative Login */}
-      <div className="text-center">
-        <p>Or</p>
-        <button className="btn btn-primary w-100 mb-2">Login with Google</button>
-        <button className="btn btn-secondary w-100">Login with Mobile Number</button>
-      </div>
-
-      {/* Close Button */}
-      <button className="btn btn-danger w-50 justify-content-center mt-3" onClick={closeModal}>
-        Close
-      </button>
-    </div>
-  );
+                <Stack spacing={2}>
+                    <TextField label="Email" variant="outlined" fullWidth />
+                    <TextField label="Password" type="password" variant="outlined" fullWidth />
+                    <Button variant="contained" color={isRegister ? "primary" : "success"} fullWidth>
+                        {isRegister ? "Register" : "Login"}
+                    </Button>
+                    <Typography align="center">OR</Typography>
+                    {isRegister ? (
+                        <>
+                            <Button variant="outlined" color="primary" fullWidth>
+                                Register with Google
+                            </Button>
+                            <Button variant="outlined" color="secondary" fullWidth>
+                                Register with Mobile Number
+                            </Button>
+                        </>
+                    ) : (
+                        <>
+                            <Button variant="outlined" color="primary" fullWidth>
+                                Login with Google
+                            </Button>
+                            <Button variant="outlined" color="secondary" fullWidth>
+                                Login with Mobile Number
+                            </Button>
+                        </>
+                    )}
+                    <Typography align="center">
+                        {isRegister ? (
+                            <>
+                                Already have an account?{" "}
+                                <Link component="button" onClick={toggleForm} sx={{ textDecoration: "none" }}>
+                                    Login
+                                </Link>
+                            </>
+                        ) : (
+                            <>
+                                Don't have an account?{" "}
+                                <Link component="button" onClick={toggleForm} sx={{ textDecoration: "none" }}>
+                                    Register
+                                </Link>
+                            </>
+                        )}
+                    </Typography>
+                </Stack>
+            </Box>
+        </Modal >
+    );
 }
-
-export default LoginModal;
