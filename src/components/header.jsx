@@ -94,8 +94,6 @@ const ResponsiveAppBar = () => {
                         <MenuItem onClick={handleMenuClose}>Page 3</MenuItem>
                     </Menu>
                 </Box>
-
-                {/* Search Button with Conditional Input */}
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                     <IconButton onClick={toggleSearch} color="inherit">
                         <SearchIcon />
@@ -113,7 +111,6 @@ const ResponsiveAppBar = () => {
                     )}
                 </Box>
 
-                {/* Action Buttons */}
                 <Box sx={{ display: 'flex', gap: 1 }}>
                     <Button
                         sx={{

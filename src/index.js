@@ -11,7 +11,7 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 const router = createBrowserRouter([
   {
-    path: "/", // Root Path
+    path: "/",
     element: <Layout />,
     children: [
       {
@@ -26,7 +26,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-// Root Rendering
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
