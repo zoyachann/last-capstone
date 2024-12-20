@@ -176,7 +176,7 @@ export default function AuthModal({ openModal, setOpenModal }) {
             fullWidth
             sx={{ textTransform: "none" }}
           >
-            {isRegister ? "Register with Google" : "Login with Google"}
+            {isRegister ? "Login with Mobile Number" : "Login with Google"}
           </Button>
           <Button
             variant="outlined"

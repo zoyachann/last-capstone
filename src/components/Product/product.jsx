@@ -32,7 +32,7 @@ const Products = () => {
   const navigate = useNavigate();
   const { isToast } = useSelector((state) => state.product)
   const dispatch = useDispatch();
-  console.log(isToast, 'isToast');  
+  console.log(isToast, 'isToast');
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -96,14 +96,10 @@ const Products = () => {
   }, [isToast])
 
   return (
-    <>
-      {/* <ToastContainer />
-      <Box className="container mt-3 d-flex justify-content-between">
-        <TextField
-          onChange={searchHandler}
-          size="small"
-          placeholder="Search items..."
-        />
+    <Box className="d-flex">
+      <ToastContainer />
+      <Box className=" mt-3 justify-content-between">
+
         <Autocomplete
           size="small"
           onChange={(e, newValue) => setCategoryFilter(newValue)}
@@ -112,7 +108,7 @@ const Products = () => {
           sx={{ width: 240, marginRight: 5 }}
           renderInput={(params) => <TextField {...params} label="Categories" />}
         />
-      </Box> */}
+      </Box>
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={openAlert}
@@ -137,12 +133,12 @@ const Products = () => {
           <CircularProgress color="inherit" />
         </Box>
       ) : (
-        <Grid container className="container mt-3">
+        <Grid container className=" mt-3">
           {products?.map((product, index) => (
 
-            <Grid item xs={12} md={3} mb={3} key={index}>
+            <Grid item xs={12} md={2} mb={2} key={index}>
               <Card
-                sx={{ padding: "20px", cursor: "pointer", width: "280px" }}
+                sx={{ padding: "20px", cursor: "pointer", width: "250px" }}
               >
                 <Box>
                   <Box className="text-center">
@@ -185,7 +181,7 @@ const Products = () => {
           ))}
         </Grid>
       )}
-    </>
+    </Box>
   );
 };
 

@@ -12,26 +12,9 @@ import AppleIcon from '@mui/icons-material/Apple';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Logo from '../asess/Logo-new.webp';
 import AuthModal from './login';
-import SearchIcon from '@mui/icons-material/Search';
+
 import { ToastContainer } from 'react-toastify';
-import { InputBase, IconButton } from '@mui/material';
-import { styled } from '@mui/system';
 
-// Styled Components
-const SearchBox = styled('div')({
-    display: 'flex',
-    alignItems: 'center',
-    backgroundColor: '#f0f0f0',
-    padding: '5px 10px',
-    borderRadius: '5px',
-    width: '100%',
-    maxWidth: '400px',
-});
-
-const SearchInput = styled(InputBase)({
-    marginLeft: '10px',
-    flex: 1,
-});
 
 const ResponsiveAppBar = () => {
     const navigate = useNavigate();
@@ -94,22 +77,7 @@ const ResponsiveAppBar = () => {
                         <MenuItem onClick={handleMenuClose}>Page 3</MenuItem>
                     </Menu>
                 </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                    <IconButton onClick={toggleSearch} color="inherit">
-                        <SearchIcon />
-                    </IconButton>
-                    {showSearch && (
-                        <SearchBox>
-                            <SearchIcon style={{ color: 'gray' }} />
-                            <SearchInput
-                                onChange={searchHandler}
-                                placeholder="Search items..."
-                                size="small"
-                                autoFocus
-                            />
-                        </SearchBox>
-                    )}
-                </Box>
+
 
                 <Box sx={{ display: 'flex', gap: 1 }}>
                     <Button
