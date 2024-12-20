@@ -11,7 +11,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import AppleIcon from '@mui/icons-material/Apple';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Logo from '../asess/Logo-new.webp';
-import AuthModal from './login';
+import AuthModal from './auth/login';
 
 import { ToastContainer } from 'react-toastify';
 

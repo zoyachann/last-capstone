@@ -1,12 +1,13 @@
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Products from "./components/Product/product";
 import HeroSection from "./components/HeroSection";
 import ImageSwiper from "./components/SwiperSlide";
 import AnchorTemporaryDrawer from "./components/ModalDetails/ModalDetails";
 import ResponsiveDrawer from "./components/Drawer";
-import ProfileDashboard from "./components/profile/profile";
+import ProfileDashboard from "./components/MyAccount/profile";
+
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
       <HeroSection />
       <ImageSwiper />
       <Products />
-      < AnchorTemporaryDrawer />
-      {/* <ProfileDashboard /> */}
+      <AnchorTemporaryDrawer />
+      <ProfileDashboard />
+    
     </>
   );
 }

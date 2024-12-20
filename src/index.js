@@ -4,24 +4,32 @@ import './index.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './store';
 import App from './App';
 import ProductDetails from './components/ProductDetails/ProductDetail';
 import Layout from './components/Layout/Layout';
-import { Provider } from 'react-redux'; 
-import { store } from './store';
+import ProfileDashboard from './components/MyAccount/profile';
+
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
       {
-        path: "", 
+        path: "",
         element: <App />,
       },
       {
         path: "product-details/:product_id",
         element: <ProductDetails />,
       },
+      {
+        path: "account/profile",
+        element: <ProfileDashboard />,
+      },
+      
     ],
   },
 ]);
@@ -32,3 +40,4 @@ root.render(
     <RouterProvider router={router} />
   </Provider>
 );
+
