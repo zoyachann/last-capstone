@@ -5,8 +5,6 @@ import Products from "./components/Product/product";
 import HeroSection from "./components/HeroSection";
 import ImageSwiper from "./components/SwiperSlide";
 import AnchorTemporaryDrawer from "./components/ModalDetails/ModalDetails";
-import ResponsiveDrawer from "./components/Drawer";
-import ProfileDashboard from "./components/MyAccount/profile";
 
 
 function App() {
@@ -16,7 +14,6 @@ function App() {
       <ImageSwiper />
       <Products />
       <AnchorTemporaryDrawer />
-      <ProfileDashboard />
     
     </>
   );

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -12,33 +12,52 @@ import AppleIcon from '@mui/icons-material/Apple';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Logo from '../asess/Logo-new.webp';
 import AuthModal from './auth/login';
+import account from '../asess/man-thumbnail.webp'
 
 import { ToastContainer } from 'react-toastify';
 
-
 const ResponsiveAppBar = () => {
     const navigate = useNavigate();
-
-    // State Management
     const [openModal, setOpenModal] = useState(false);
     const [isRegister, setIsRegister] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
-    const [showSearch, setShowSearch] = useState(false); // Toggle search visibility
+    const [user, setUser] = useState(); 
+    console.log(user, 'user');
+
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+
+    useEffect(() => {
+        const loggedInUser = JSON.parse(localStorage.getItem('users'));
+
+        console.log(loggedInUser, 'loggedInUser');
+
+        if (loggedInUser) {
+            setUser(loggedInUser);
+        }
+    }, []);
 
     const handleMenuOpen = (event) => setAnchorEl(event.currentTarget);
     const handleMenuClose = () => setAnchorEl(null);
 
     const handleOpenModal = () => setOpenModal(true);
-    const toggleSearch = () => setShowSearch(!showSearch);
 
-    const searchHandler = (e) => {
-        console.log("Searching for:", e.target.value);
+    const handleLogout = () => {
+        localStorage.removeItem('loggedInUser'); 
+        localStorage.removeItem("userEmail");  
+        localStorage.removeItem("userPassword"); 
+        setUser(null); 
+        navigate('/'); 
     };
 
     return (
         <AppBar position="sticky" color="default" elevation={0} className="py-2">
             <Toolbar>
-                {/* Logo */}
                 <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
                     <img src={Logo} alt="PickBazar Logo" style={{ height: 40, marginRight: 8 }} />
                     <Typography
@@ -62,8 +81,6 @@ const ResponsiveAppBar = () => {
                         </Button>
                     </Box>
                 </Box>
-
-                {/* Page Links */}
                 <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
                     <Button color="inherit">Shops</Button>
                     <Button color="inherit">Offers</Button>
@@ -78,28 +95,50 @@ const ResponsiveAppBar = () => {
                     </Menu>
                 </Box>
 
-
                 <Box sx={{ display: 'flex', gap: 1 }}>
-                    <Button
-                        sx={{
-                            textTransform: 'none',
-                            background: '#019376',
-                            color: 'white',
-                            display: { xs: 'none', md: 'flex' },
-                            '&:hover': { background: '#017a5f' },
-                        }}
-                        variant="contained"
-                        onClick={handleOpenModal}
-                    >
-                        Join
-                    </Button>
+                    {user ? (
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                            <Button
+                          
+                                id="basic-button"
+                                aria-controls={open ? 'basic-menu' : undefined}
+                                aria-haspopup="true"
+                                aria-expanded={open ? 'true' : undefined}
+                                onClick={handleClick}
+                            >
+                              <img className='' src={account} alt="" srcset=""width={40} />
+                            </Button>
+                            <Menu
+                                id="basic-menu"
+                                anchorEl={anchorEl}
+                                open={open}
+                                onClose={handleClose}
+                                MenuListProps={{
+                                    'aria-labelledby': 'basic-button',
+                                }}
+                            >
+                                <MenuItem onClick={handleClose}><Link to='account/profile'>Profile</Link> </MenuItem>
+                                <MenuItem onClick={handleClose}>My account</MenuItem>
+                                <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                            </Menu>
+                          
+                        </Box>
+                    ) : (
+                        <Button
+                            sx={{
+                                textTransform: 'none',
+                                background: '#019376',
+                                color: 'white',
+                                display: { xs: 'none', md: 'flex' },
+                                '&:hover': { background: '#017a5f' },
+                            }}
+                            variant="contained"
+                            onClick={handleOpenModal} 
+                        >
+                            Join
+                        </Button>
+                    )}
 
-                    <AuthModal
-                        openModal={openModal}
-                        setOpenModal={setOpenModal}
-                        isRegister={isRegister}
-                        setIsRegister={setIsRegister}
-                    />
                     <Button
                         variant="contained"
                         sx={{
@@ -111,11 +150,16 @@ const ResponsiveAppBar = () => {
                         Become a Seller
                     </Button>
                 </Box>
+
+                <AuthModal
+                    openModal={openModal}
+                    setOpenModal={setOpenModal}
+                    isRegister={isRegister}
+                    setIsRegister={setIsRegister}
+                />
                 <ToastContainer />
             </Toolbar>
-        </AppBar>
+        </AppBar >
     );
 };
-
 export default ResponsiveAppBar;
-

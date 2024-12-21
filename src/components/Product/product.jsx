@@ -21,6 +21,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../../slice/Product/productSlice";
 import { ToastContainer, toast } from 'react-toastify';
+import FilterMenu from "./FilterCategory";
 const Products = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [cartList, setCartList] = useState([]);
@@ -99,16 +100,10 @@ const Products = () => {
     <Box className="d-flex">
       <ToastContainer />
       <Box className=" mt-3 justify-content-between">
+        <FilterMenu />
 
-        <Autocomplete
-          size="small"
-          onChange={(e, newValue) => setCategoryFilter(newValue)}
-          disablePortal
-          options={categoryOptions}
-          sx={{ width: 240, marginRight: 5 }}
-          renderInput={(params) => <TextField {...params} label="Categories" />}
-        />
       </Box>
+
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={openAlert}

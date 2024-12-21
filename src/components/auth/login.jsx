@@ -9,10 +9,9 @@ import {
   InputAdornment,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 import Logo from "../../asess/Logo-new.webp";
 
-// Modal Styling
 const modalStyle = {
   position: "absolute",
   top: "50%",
@@ -34,7 +33,7 @@ export default function AuthModal({ openModal, setOpenModal }) {
   });
 
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -70,7 +69,8 @@ export default function AuthModal({ openModal, setOpenModal }) {
 
     if (user) {
       alert("Login successful!");
-      navigate("/"); // Redirect to home page after successful login
+      handleClose(); 
+      navigate("/"); 
     } else {
       alert("Invalid credentials. Please register first.");
     }
@@ -194,7 +194,7 @@ export default function AuthModal({ openModal, setOpenModal }) {
           <Typography align="center" variant="body2">
             OR
           </Typography>
-          {!isRegister && ( // Only display this button on the Login page
+          {!isRegister && (
             <Button
               variant="outlined"
               color="secondary"
