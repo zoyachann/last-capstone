@@ -24,7 +24,7 @@ const ImageSwiper = () => {
         breakpoints={{
           640: { slidesPerView: 1 },
           768: { slidesPerView: 2 },
-          1024: { slidesPerView: 4 },
+          1024: { slidesPerView: 3 },
         }}
         className="py-4"
       >

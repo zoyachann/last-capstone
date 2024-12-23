@@ -21,15 +21,15 @@ const ResponsiveAppBar = () => {
     const [openModal, setOpenModal] = useState(false);
     const [isRegister, setIsRegister] = useState(false);
     const [anchorEl, setAnchorEl] = useState(null);
-    const [user, setUser] = useState(); 
+    const [user, setUser] = useState();
     console.log(user, 'user');
 
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
+        setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
-      setAnchorEl(null);
+        setAnchorEl(null);
     };
 
     useEffect(() => {
@@ -48,11 +48,11 @@ const ResponsiveAppBar = () => {
     const handleOpenModal = () => setOpenModal(true);
 
     const handleLogout = () => {
-        localStorage.removeItem('loggedInUser'); 
-        localStorage.removeItem("userEmail");  
-        localStorage.removeItem("userPassword"); 
-        setUser(null); 
-        navigate('/'); 
+        localStorage.removeItem('loggedInUser');
+        localStorage.removeItem("userEmail");
+        localStorage.removeItem("userPassword");
+        setUser(null);
+        navigate('/');
     };
 
     return (
@@ -99,14 +99,14 @@ const ResponsiveAppBar = () => {
                     {user ? (
                         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                             <Button
-                          
+
                                 id="basic-button"
                                 aria-controls={open ? 'basic-menu' : undefined}
                                 aria-haspopup="true"
                                 aria-expanded={open ? 'true' : undefined}
                                 onClick={handleClick}
                             >
-                              <img className='' src={account} alt="" srcset=""width={40} />
+                                <img className='' src={account} alt="" srcset="" width={40} />
                             </Button>
                             <Menu
                                 id="basic-menu"
@@ -121,7 +121,7 @@ const ResponsiveAppBar = () => {
                                 <MenuItem onClick={handleClose}>My account</MenuItem>
                                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
                             </Menu>
-                          
+
                         </Box>
                     ) : (
                         <Button
@@ -133,7 +133,7 @@ const ResponsiveAppBar = () => {
                                 '&:hover': { background: '#017a5f' },
                             }}
                             variant="contained"
-                            onClick={handleOpenModal} 
+                            onClick={handleOpenModal}
                         >
                             Join
                         </Button>

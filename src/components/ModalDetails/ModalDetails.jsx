@@ -6,7 +6,6 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-
 import GreenBag from '../../asess/green-bag.jpg';
 export default function RightDrawer() {
     const [state, setState] = React.useState(false);
@@ -46,7 +45,6 @@ export default function RightDrawer() {
                 </IconButton>
             </Box>
             <hr />
-            {/* Empty Content Area */}
             <Box
                 sx={{
                     flexGrow: 1,
@@ -67,8 +65,6 @@ export default function RightDrawer() {
                     No products found
                 </Typography>
             </Box>
-
-            {/* Footer with Checkout */}
             <Box
                 sx={{
                     display: "flex",
@@ -105,7 +101,6 @@ export default function RightDrawer() {
 
     return (
         <div>
-            {/* Button to toggle Drawer */}
             <Button
                 sx={{
                     display: { xs: "none", md: "flex" },

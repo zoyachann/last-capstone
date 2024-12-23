@@ -1,10 +1,10 @@
 import "./App.css";
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 import Products from "./components/Product/product";
 import HeroSection from "./components/HeroSection";
 import ImageSwiper from "./components/SwiperSlide";
-import AnchorTemporaryDrawer from "./components/ModalDetails/ModalDetails";
+import RightDrawer from "./components/ModalDetails/ModalDetails";
+
 
 
 function App() {
@@ -13,8 +13,7 @@ function App() {
       <HeroSection />
       <ImageSwiper />
       <Products />
-      <AnchorTemporaryDrawer />
-    
+      <RightDrawer />
     </>
   );
 }

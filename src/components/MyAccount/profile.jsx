@@ -12,6 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import ProfileImage from "../../asess/man-thumbnail.webp";
 import { Select, MenuItem, InputAdornment } from "@mui/material";
+
 const ProfileDashboard = () => {
   const navigate = useNavigate();
 
@@ -83,17 +84,19 @@ const ProfileDashboard = () => {
               </Box>
             </Box>
           </Box>
+
           <Box
             sx={{
+        
               backgroundColor: "#fff",
               padding: 2,
               borderRadius: 2,
-              paddingBottom: "50px",
+              py: "50px",
             }}
           >
             <Typography
               variant="body1"
-              sx={{ marginBottom: 1, cursor: "pointer" }}
+              sx={{ marginBottom: 3, cursor: "pointer", }}
               onClick={handleChangePasswordClick}
             >
               Change Password
