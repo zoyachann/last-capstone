@@ -5,13 +5,11 @@ import {
   TextField,
   Button,
   Grid,
-  Card,
-  CardContent,
   Divider,
+
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import ProfileImage from "../../asess/man-thumbnail.webp";
-import { Select, MenuItem, InputAdornment } from "@mui/material";
 
 const ProfileDashboard = () => {
   const navigate = useNavigate();
@@ -30,12 +28,11 @@ const ProfileDashboard = () => {
     localStorage.setItem("email", email);
     alert("Email updated!");
   };
+
   const handleLogout = () => {
     localStorage.clear();
     navigate("/");
   };
-
-  const handleChangePasswordClick = () => navigate("./ChangePassword.jsx");
 
   return (
     <Box
@@ -84,10 +81,8 @@ const ProfileDashboard = () => {
               </Box>
             </Box>
           </Box>
-
           <Box
             sx={{
-        
               backgroundColor: "#fff",
               padding: 2,
               borderRadius: 2,
@@ -96,15 +91,13 @@ const ProfileDashboard = () => {
           >
             <Typography
               variant="body1"
-              sx={{ marginBottom: 3, cursor: "pointer", }}
-              onClick={handleChangePasswordClick}
+              sx={{ marginBottom: 3, cursor: "pointer" }}
+              onClick={() => navigate("/update-password")}
             >
               Change Password
             </Typography>
             {[
-
               "Profile",
-
               "My Orders",
               "Downloads",
               "My Wishlists",
@@ -136,7 +129,6 @@ const ProfileDashboard = () => {
               Logout
             </Typography>
           </Box>
-
         </Grid>
         <Grid item xs={12} md={9}>
           <Box sx={{ backgroundColor: "#fff", padding: 3, borderRadius: 2 }}>
@@ -211,13 +203,13 @@ const ProfileDashboard = () => {
             <Button
               variant="contained"
               color="success"
-
-
               onClick={handleUpdateEmail}
             >
               Update
             </Button>
           </Box>
+          {/*  */}
+
           <Box
             sx={{
               padding: 3,
@@ -225,131 +217,120 @@ const ProfileDashboard = () => {
 
             }}
           >
-            <Grid container spacing={3}>
-              <Grid item xs={12}>
-                <Box
+            {/* Contact Number Section */}
+            <Box
+              sx={{
+                backgroundColor: "#fff",
+                padding: 3,
+                borderRadius: 2,
+                boxShadow: "0px 2px 5px rgba(0,0,0,0.1)",
+                marginBottom: 3,
+              }}
+            >
+              <Box sx={{
+                justifyContent: "space-between",
+                display: "flex"
+              }}>
+                <Typography variant="h6" sx={{ marginBottom: 2 }}>
+                  Contact Number
+                </Typography>
+                <Typography
+                  variant="body2"
                   sx={{
-                    backgroundColor: "#fff",
-                    padding: 3,
-                    borderRadius: 2,
-                    marginBottom: 3,
+                    cursor: "pointer",
+                    color: "success",
                   }}
                 >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Typography variant="h6" fontWeight="bold">
-                      Contact Number
-                    </Typography>
-                    <Button variant="text" sx={{ color: "teal" }}>
-                      + Update
-                    </Button>
-                  </Box>
+                  + Update
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  border: "black"
+                }}
+              >
+                <TextField
+                  fullWidth
+                  placeholder="+1 (936) 514-1641"
+                />
+              </Box>
+            </Box>
 
-                  <TextField
-                    fullWidth
-                    variant="outlined"
-                    value="+1 (936) 514-1641"
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <Select
-                            defaultValue="US"
-                            sx={{ minWidth: 60, padding: 0 }}
-                          >
-                            <MenuItem value="US">
-                              <img
-                                src="https://flagcdn.com/us.svg"
-                                alt="US"
-                                width="20"
-                                style={{ marginRight: 5 }}
-                              />
-                            </MenuItem>
-                            <MenuItem value="PK">
-                              <img
-                                src="https://flagcdn.com/pk.svg"
-                                alt="PK"
-                                width="20"
-                                style={{ marginRight: 5 }}
-                              />
-                            </MenuItem>
-                          </Select>
-                        </InputAdornment>
-                      ),
-                    }}
-                    sx={{ marginTop: 2 }}
-                  />
-                </Box>
-              </Grid>
-
-              {/* Addresses Section */}
-              <Grid item xs={12}>
-                <Box
+            {/* Addresses Section */}
+            <Box
+              sx={{
+                backgroundColor: "#fff",
+                padding: 3,
+                borderRadius: 2,
+                boxShadow: "0px 2px 5px rgba(0,0,0,0.1)",
+              }}
+            >
+              <Box sx={{
+                justifyContent: "space-between",
+                display: "flex"
+              }}>
+                <Typography variant="h6" sx={{ marginBottom: 2 }}>
+                  Addresses
+                </Typography>
+                <Typography
+                  variant="body2"
                   sx={{
-                    backgroundColor: "#fff",
-                    padding: 3,
-                    borderRadius: 2,
+                    cursor: "pointer",
+                    color: "success",
                   }}
                 >
+                  + Add
+                </Typography>
+              </Box>
+              <Grid container spacing={3}>
+                <Grid item xs={12} sm={6}>
                   <Box
                     sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
+                      backgroundColor: "#f9f9f9",
+                      padding: 2,
+                      borderRadius: 2,
+                      height: "100%",
+                      boxShadow: "0px 1px 3px rgba(0,0,0,0.1)",
                     }}
                   >
-                    <Typography variant="h6" fontWeight="bold">
-                      Addresses
+                    <Typography
+                      variant="subtitle1"
+                      fontWeight="bold"
+                      sx={{ marginBottom: 1 }}
+                    >
+                      Billing
                     </Typography>
-                    <Button variant="text" sx={{ color: "teal" }}>
-                      + Add
-                    </Button>
+                    <Typography variant="body2" color="textSecondary">
+                      2231 Kidd Avenue, AK, Kipnuk, 99614, United States
+                    </Typography>
                   </Box>
-
-                  <Grid container spacing={2} sx={{ marginTop: 2 }}>
-                    <Grid item xs={12} md={6}>
-                      <Card
-                        sx={{
-                          backgroundColor: "#f5f5f5",
-                          padding: 2,
-                        }}
-                      >
-                        <CardContent>
-                          <Typography variant="subtitle1" fontWeight="bold">
-                            Billing
-                          </Typography>
-                          <Typography variant="body2" sx={{ marginTop: 1 }}>
-                            2231 Kidd Avenue, AK, Kipnuk, 99614, United States
-                          </Typography>
-                        </CardContent>
-                      </Card>
-                    </Grid>
-
-                    <Grid item xs={12} md={6}>
-                      <Card
-                        sx={{
-                          backgroundColor: "#f5f5f5",
-                          padding: 2,
-                        }}
-                      >
-                        <CardContent>
-                          <Typography variant="subtitle1" fontWeight="bold">
-                            Shipping
-                          </Typography>
-                          <Typography variant="body2" sx={{ marginTop: 1 }}>
-                            2148 Stratford Park, KY, Winchester, 40391, United States
-                          </Typography>
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                  </Grid>
-                </Box>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Box
+                    sx={{
+                      backgroundColor: "#f9f9f9",
+                      padding: 2,
+                      borderRadius: 2,
+                      height: "100%",
+                      boxShadow: "0px 1px 3px rgba(0,0,0,0.1)",
+                    }}
+                  >
+                    <Typography
+                      variant="subtitle1"
+                      fontWeight="bold"
+                      sx={{ marginBottom: 1 }}
+                    >
+                      Shipping
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary">
+                      2148 Stratford Park, KY, Winchester, 40391, United States
+                    </Typography>
+                  </Box>
+                </Grid>
               </Grid>
-            </Grid>
+              <Box sx={{ marginTop: 2, textAlign: "right" }}>
+              </Box>
+            </Box>
           </Box>
         </Grid>
       </Grid>

@@ -9,11 +9,9 @@ import Button from "@mui/material/Button";
 import GreenBag from '../../asess/green-bag.jpg';
 export default function RightDrawer() {
     const [state, setState] = React.useState(false);
-
     const toggleDrawer = (open) => () => {
         setState(open);
     };
-
     const list = () => (
         <Box
             sx={{
@@ -29,8 +27,7 @@ export default function RightDrawer() {
                 sx={{
                     display: "flex",
                     justifyContent: "space-between",
-                    alignItems: "center",
-                    
+                    alignItems: "center", 
                 }}
             >
                 <Typography variant="h6" sx={{
@@ -79,10 +76,8 @@ export default function RightDrawer() {
                     sx={{ flexGrow: 1, backgroundColor: "#009688", justifyContent: "space-between", borderRadius: "30px", py: "10px" }}
                 >
                     Checkout
-
                     <Typography
                         sx={{
-
                             color: "#009688",
                             fontWeight: "bold",
                             fontSize: "12px",

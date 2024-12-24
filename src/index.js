@@ -10,6 +10,7 @@ import App from './App';
 import ProductDetails from './components/ProductDetails/ProductDetail';
 import Layout from './components/Layout/Layout';
 import ProfileDashboard from './components/MyAccount/profile';
+import ChangePassword from './components/MyAccount/ChangePassword';
 
 
 const router = createBrowserRouter([
@@ -29,7 +30,15 @@ const router = createBrowserRouter([
         path: "account/profile",
         element: <ProfileDashboard />,
       },
-      
+      {
+        path: '/update-password',
+        element: <ChangePassword />
+      },
+      {
+        path: '/profile-page',
+        element: <ProfileDashboard />
+      }
+
     ],
   },
 ]);

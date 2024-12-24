@@ -7,6 +7,7 @@ import RightDrawer from "./components/ModalDetails/ModalDetails";
 
 
 
+
 function App() {
   return (
     <>
@@ -14,6 +15,7 @@ function App() {
       <ImageSwiper />
       <Products />
       <RightDrawer />
+     
     </>
   );
 }
