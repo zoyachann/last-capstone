@@ -11,7 +11,7 @@ import ProductDetails from './components/ProductDetails/ProductDetail';
 import Layout from './components/Layout/Layout';
 import ProfileDashboard from './components/MyAccount/profile';
 import ChangePassword from './components/MyAccount/ChangePassword';
-
+import Error from "./components/ErrorPage/error";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +37,11 @@ const router = createBrowserRouter([
       {
         path: '/profile-page',
         element: <ProfileDashboard />
-      }
+      },
+      {
+        path: "*", 
+        element: <Error />,
+      },
 
     ],
   },

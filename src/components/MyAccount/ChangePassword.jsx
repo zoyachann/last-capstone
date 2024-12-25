@@ -105,7 +105,8 @@ const ChangePassword = () => {
           </Box>
         </Grid>
         <Grid item xs={12} md={9}>
-          <Box sx={{ backgroundColor: "#fff", padding: 3, borderRadius: 2, boxShadow: "0px 2px 5px rgba(0,0,0,0.1)", maxWidth: 600, margin: "auto" }}>
+          <Box sx={{ backgroundColor: "#fff", padding: 3, borderRadius: 2, boxShadow: "0px 2px 5px rgba(0,0,0,0.1)"  }}>
+                <Divider sx={{ marginY: 2 }} />
             <Typography variant="h6" fontWeight="bold" sx={{ marginBottom: 2 }}>
               Change Password
             </Typography>
