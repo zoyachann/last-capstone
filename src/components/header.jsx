@@ -23,7 +23,6 @@ const ResponsiveAppBar = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const [user, setUser] = useState();
     console.log(user, 'user');
-
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -31,12 +30,9 @@ const ResponsiveAppBar = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
-
     useEffect(() => {
         const loggedInUser = JSON.parse(localStorage.getItem('users'));
-
         console.log(loggedInUser, 'loggedInUser');
-
         if (loggedInUser) {
             setUser(loggedInUser);
         }
@@ -44,15 +40,18 @@ const ResponsiveAppBar = () => {
 
     const handleMenuOpen = (event) => setAnchorEl(event.currentTarget);
     const handleMenuClose = () => setAnchorEl(null);
-
     const handleOpenModal = () => setOpenModal(true);
-
     const handleLogout = () => {
         localStorage.removeItem('loggedInUser');
         localStorage.removeItem("userEmail");
         localStorage.removeItem("userPassword");
         setUser(null);
         navigate('/');
+    };
+    
+
+    const handleNavigateHome = () => {
+        navigate('/'); 
     };
 
     return (
@@ -63,7 +62,8 @@ const ResponsiveAppBar = () => {
                     <Typography
                         variant="h6"
                         component="div"
-                        sx={{ fontWeight: 'bold', color: '#333', marginRight: '20px' }}
+                        onClick={handleNavigateHome} 
+                        sx={{ fontWeight: 'bold', color: '#333', marginRight: '20px', cursor: 'pointer' }} 
                     >
                         PickBazar
                     </Typography>

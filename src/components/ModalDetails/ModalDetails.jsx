@@ -21,13 +21,12 @@ export default function RightDrawer() {
                 height: "100%",
                 position: "relative",
                 p: 2,
-            }}
-        >
+            }}  >
             <Box
                 sx={{
                     display: "flex",
                     justifyContent: "space-between",
-                    alignItems: "center", 
+                    alignItems: "center",
                 }}
             >
                 <Typography variant="h6" sx={{
@@ -57,7 +56,6 @@ export default function RightDrawer() {
                         height: "160px",
                         marginBottom: "16px",
                     }} />
-
                 <Typography variant="body1" sx={{ color: "black", fontWeight: "bold" }}>
                     No products found
                 </Typography>

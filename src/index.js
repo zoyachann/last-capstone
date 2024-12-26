@@ -7,11 +7,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import App from './App';
-import ProductDetails from './components/ProductDetails/ProductDetail';
+
 import Layout from './components/Layout/Layout';
 import ProfileDashboard from './components/MyAccount/profile';
 import ChangePassword from './components/MyAccount/ChangePassword';
 import Error from "./components/ErrorPage/error";
+import ProductDetailsPage from './components/Product/ProductDetails/ProductDetail';
 
 const router = createBrowserRouter([
   {
@@ -23,8 +24,8 @@ const router = createBrowserRouter([
         element: <App />,
       },
       {
-        path: "product-details/:product_id",
-        element: <ProductDetails />,
+        path: "/ProductDetailsPage/:id",
+        element: <ProductDetailsPage />,
       },
       {
         path: "account/profile",
