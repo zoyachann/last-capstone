@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   Box,
-  Card,
-  CardContent,
   CardMedia,
   Typography,
   Grid,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Button,
 } from "@mui/material";
 
 // Image imports
@@ -44,7 +47,8 @@ import Mixbiscuits30 from "../../../asess/kame_stir_fry.webp";
 const ProductDetailsPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [error, setError] = useState(null);
+  const [open, setOpen] = useState(true); // Modal is open initially
+  const navigate = useNavigate(); // For navigation
 
   const dummyProducts = [
     {
@@ -260,24 +264,17 @@ const ProductDetailsPage = () => {
   ];
 
   useEffect(() => {
-    console.log("ID from URL:", id); 
-    const productId = parseInt(id, 10); 
+    const productId = parseInt(id, 10);
     const foundProduct = dummyProducts.find((p) => p.id === productId);
-
     if (foundProduct) {
       setProduct(foundProduct);
-    } else {
-      setError("Product not found");
     }
   }, [id]);
 
-  // if (error) {
-  //   return (
-  //     <div className="container">
-  //       <p>{error}</p>
-  //     </div>
-  //   );
-  // }
+  const handleClose = () => {
+    setOpen(false); // Close the modal
+    navigate("/"); // Redirect to home page
+  };
 
   if (!product) {
     return (
@@ -287,87 +284,38 @@ const ProductDetailsPage = () => {
     );
   }
 
-  // sx={{
-  // padding: 2,
-  // borderRadius: 2,
-  // boxShadow: 3,
-  //
-  // }}
-
   return (
-    <Box
-      className="container"
-      sx={{
-        padding: 5,
-        backgroundColor: "#f8f9fa",
-        minHeight: "90vh",
-      }}
-    >
-      <Grid
-        container
-        spacing={0}
-        justifyContent="center"
-        alignItems="center"
-        sx={{
-          maxWidth: "100%",
-          height: "85vh",
-          borderRadius: 2,
-          boxShadow: 3,
-          backgroundColor: "white",
-          padding: 5,
-        }}
-      >
-        {/* Image Section */}
-        <Grid
-          item
-          xs={12}
-          md={6}
-          sx={{
-            textAlign: "center",
-          }}
-        >
-          <CardMedia component="img" image={product.img} alt={product.title} />
-        </Grid>
+    <Dialog open={open} onClose={handleClose} fullWidth maxWidth="md">
+      <DialogTitle>Product Details</DialogTitle>
+      <DialogContent>
+        <Grid container spacing={2}>
+          {/* Image Section */}
+          <Grid item xs={12} md={6} sx={{ textAlign: "center" }}>
+            <CardMedia component="img" image={product.img} alt={product.title} />
+          </Grid>
 
-        {/* Details Section */}
-        <Grid item xs={12} md={6}>
-          <Box>
-            <Typography
-              variant="h4"
-              sx={{
-                fontWeight: "bold",
-                marginBottom: 2,
-              }}
-            >
-              {product.title}
-            </Typography>
-            <Typography
-              variant="body1"
-              color="text.secondary"
-              sx={{ marginBottom: 3 }}
-            >
-              Category: {product.Category}
-            </Typography>
-            <Typography
-              variant="body1"
-              color="text.secondary"
-              sx={{ marginBottom: 3 }}
-            >
-              Category: {product.Category}
-            </Typography>
-            <Typography
-              variant="h5"
-              sx={{
-                color: "#27ae60",
-                fontWeight: "bold",
-              }}
-            >
-              Price: {product.price}
-            </Typography>
-          </Box>
+          {/* Details Section */}
+          <Grid item xs={12} md={6}>
+            <Box>
+              <Typography variant="h4" sx={{ fontWeight: "bold", marginBottom: 2 }}>
+                {product.title}
+              </Typography>
+              <Typography variant="body1" color="text.secondary" sx={{ marginBottom: 3 }}>
+                Category: {product.Category}
+              </Typography>
+              <Typography variant="h5" sx={{ color: "#27ae60", fontWeight: "bold" }}>
+                Price: {product.price}
+              </Typography>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
-    </Box>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleClose} color="primary">
+          Close
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 };
 

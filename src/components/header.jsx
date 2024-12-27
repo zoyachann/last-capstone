@@ -39,7 +39,6 @@ const ResponsiveAppBar = () => {
     }, []);
 
     const handleMenuOpen = (event) => setAnchorEl(event.currentTarget);
-    const handleMenuClose = () => setAnchorEl(null);
     const handleOpenModal = () => setOpenModal(true);
     const handleLogout = () => {
         localStorage.removeItem('loggedInUser');
@@ -88,11 +87,7 @@ const ResponsiveAppBar = () => {
                     <Button color="inherit" endIcon={<ExpandMoreIcon />} onClick={handleMenuOpen}>
                         Pages
                     </Button>
-                    <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
-                        <MenuItem onClick={handleMenuClose}>Page 1</MenuItem>
-                        <MenuItem onClick={handleMenuClose}>Page 2</MenuItem>
-                        <MenuItem onClick={handleMenuClose}>Page 3</MenuItem>
-                    </Menu>
+
                 </Box>
 
                 <Box sx={{ display: 'flex', gap: 1 }}>
