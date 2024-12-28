@@ -196,6 +196,9 @@ const ModalDetails = () => {
           alignItems: "center",
           minWidth: "80px",
           boxShadow: 3,
+          "@media (max-width: 600px)": {
+            display: "none", 
+          },
         }}
       >
         <ShoppingBagIcon sx={{ marginBottom: "5px" }} />
