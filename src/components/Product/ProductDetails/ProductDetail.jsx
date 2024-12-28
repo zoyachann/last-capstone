@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   Box,
   CardMedia,
@@ -47,10 +47,9 @@ import Mixbiscuits30 from "../../../asess/kame_stir_fry.webp";
 const ProductDetailsPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [open, setOpen] = useState(true); // Modal is open initially
-  const navigate = useNavigate(); // For navigation
-
-  const dummyProducts = [
+  const [open, setOpen] = useState(true); 
+  const navigate = useNavigate(); 
+   const dummyProducts = [
     {
       id: 1,
       img: Biscuit1,
@@ -263,6 +262,7 @@ const ProductDetailsPage = () => {
     },
   ];
 
+
   useEffect(() => {
     const productId = parseInt(id, 10);
     const foundProduct = dummyProducts.find((p) => p.id === productId);
@@ -272,8 +272,8 @@ const ProductDetailsPage = () => {
   }, [id]);
 
   const handleClose = () => {
-    setOpen(false); // Close the modal
-    navigate("/"); // Redirect to home page
+    setOpen(false); 
+    navigate("/"); 
   };
 
   if (!product) {
