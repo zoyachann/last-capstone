@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Box, Button, Card, Collapse, Grid, Typography } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
@@ -422,7 +422,7 @@ const Products = () => {
 
                     Cart
                   </Typography>
-                </Button>
+                </Button>         
 
               </Box>
             </Card>

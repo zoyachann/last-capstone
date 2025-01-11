@@ -181,50 +181,50 @@ const ModalDetails = () => {
 
 
       <Button
-        variant="contained"
-        onClick={() => setDrawerOpen(true)}
-        sx={{
-          position: "fixed",
-          top: "50%",
-          right: "10px",
-          backgroundColor: "#019376",
-          color: "#fff",
-          borderRadius: "12px",
-          padding: "10px 15px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          minWidth: "80px",
-          boxShadow: 3,
-          "@media (max-width: 600px)": {
-            display: "none", 
-          },
-        }}
-      >
-        <ShoppingBagIcon sx={{ marginBottom: "5px" }} />
-        <Typography
-          variant="caption"
-          sx={{ fontSize: "14px", fontWeight: "bold" }}
-        >
-          {cart.length} Item
-        </Typography>
-        <Typography
-          variant="caption"
-          sx={{
-            fontSize: "14px",
-            fontWeight: "bold",
-            backgroundColor: "#fff",
-            color: "#019376",
-            padding: "2px 8px",
-            borderRadius: "8px",
-            marginTop: "5px",
-          }}
-        >
-          ${totalPrice.toFixed(2)}
-        </Typography>
-      </Button>
-
-
+  variant="contained"
+  onClick={() => setDrawerOpen(true)}
+  sx={{
+    position: "fixed", // Keeps the button fixed in the viewport
+    top: "50%", // Vertically centered
+    right: "10px", // Positioned 10px from the right edge
+    transform: "translateY(-50%)", // Ensures perfect vertical centering
+    backgroundColor: "#019376",
+    color: "#fff",
+    borderRadius: "12px",
+    padding: "10px 15px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    minWidth: "80px",
+    boxShadow: 3,
+    zIndex: 1000, // Ensures it stays above other components
+    "@media (max-width: 600px)": {
+      display: "none", // Hides the button on smaller screens
+    },
+  }}
+>
+  <ShoppingBagIcon sx={{ marginBottom: "5px" }} />
+  <Typography
+    variant="caption"
+    sx={{ fontSize: "14px", fontWeight: "bold" }}
+  >
+    {cart.length} Item
+  </Typography>
+  <Typography
+    variant="caption"
+    sx={{
+      fontSize: "14px",
+      fontWeight: "bold",
+      backgroundColor: "#fff",
+      color: "#019376",
+      padding: "2px 8px",
+      borderRadius: "8px",
+      marginTop: "5px",
+    }}
+  >
+    ${totalPrice.toFixed(2)}
+  </Typography>
+</Button>
 
       <Drawer
         anchor="right"

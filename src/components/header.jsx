@@ -48,6 +48,12 @@ const ResponsiveAppBar = () => {
         navigate('/');
     };
     
+  const handleNavigate = () => {
+    navigate("/contact"); 
+  };
+  const handleNavigateShops= () => {
+    navigate("/shops"); 
+  };
 
     const handleNavigateHome = () => {
         navigate('/'); 
@@ -81,9 +87,9 @@ const ResponsiveAppBar = () => {
                     </Box>
                 </Box>
                 <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
-                    <Button color="inherit">Shops</Button>
+                    <Button color="inherit" onClick={handleNavigateShops}>Shops</Button>
                     <Button color="inherit">Offers</Button>
-                    <Button color="inherit">Contact</Button>
+                    <Button color="inherit" onClick={handleNavigate}>Contact</Button>
                     <Button color="inherit" endIcon={<ExpandMoreIcon />} onClick={handleMenuOpen}>
                         Pages
                     </Button>

@@ -3,8 +3,6 @@ import heroImage from "../asess/grocery.webp";
 import SearchIcon from '@mui/icons-material/Search';
 import { Box } from "@mui/material";
 
-
-
 const HeroSection = () => {
   return (
     <Box
