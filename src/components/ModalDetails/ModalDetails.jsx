@@ -184,10 +184,10 @@ const ModalDetails = () => {
   variant="contained"
   onClick={() => setDrawerOpen(true)}
   sx={{
-    position: "fixed", // Keeps the button fixed in the viewport
-    top: "50%", // Vertically centered
-    right: "10px", // Positioned 10px from the right edge
-    transform: "translateY(-50%)", // Ensures perfect vertical centering
+    position: "fixed", 
+    top: "50%",
+    right: "10px", 
+    transform: "translateY(-50%)", 
     backgroundColor: "#019376",
     color: "#fff",
     borderRadius: "12px",
@@ -197,9 +197,9 @@ const ModalDetails = () => {
     alignItems: "center",
     minWidth: "80px",
     boxShadow: 3,
-    zIndex: 1000, // Ensures it stays above other components
+    zIndex: 1000, 
     "@media (max-width: 600px)": {
-      display: "none", // Hides the button on smaller screens
+      display: "none", 
     },
   }}
 >
